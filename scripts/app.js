@@ -7,7 +7,7 @@ if ( app.havePointerLock ) {
 }
 
 app.renderer = new THREE.WebGLRenderer();
-app.renderer.setClearColor( 0xffffff );
+app.renderer.setClearColor( 0xddddff );
 app.renderer.setPixelRatio( window.devicePixelRatio );
 app.renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( app.renderer.domElement );

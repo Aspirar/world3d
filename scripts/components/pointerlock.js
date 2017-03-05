@@ -14,9 +14,11 @@ app.enablePointerLock = function () {
 		  || document.webkitPointerLockElement === element ) {
 			app.blocker.classList.add( 'hidden' );
 			app.controls.enabled = true;
+			app.enableMouseEvents();
 		} else {
 			app.blocker.classList.remove( 'hidden' );
 			app.controls.enabled = false;
+			app.disableMouseEvents();
 		}
 	}
 

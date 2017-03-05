@@ -1,11 +1,21 @@
 (function () {
-	var geometry, mesh, material;
+	var geometry, mesh, material, texture;
 
-	geometry = new THREE.PlaneGeometry( 2000, 2000, 100, 100 );
+	geometry = new THREE.PlaneGeometry( 2000, 2000 );
 	geometry.rotateX( - Math.PI / 2 );
 
-	material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
+	texture = new THREE.TextureLoader().load(' textures/grass.jpg' );
+	texture.wrapS = THREE.RepeatWrapping;
+	texture.wrapT = THREE.RepeatWrapping;
+	texture.repeat.set( 100, 100 );
+
+	material = new THREE.MeshLambertMaterial( {
+		map: texture
+	} );
 
 	var mesh = new THREE.Mesh( geometry, material );
 	app.scene.add( mesh );
+
+	app.objects.push( mesh );
+	app.floor = mesh;
 }());

@@ -16,7 +16,7 @@ app.updateMovement = function () {
 	if ( app.move.left     ) app.move.velocity.x -= moveSpeed * delta;
 	if ( app.move.right    ) app.move.velocity.x += moveSpeed * delta;
 
-	app.raycaster.bottom.ray.origin.copy(camera);
+	app.raycaster.bottom.ray.origin.copy( camera.position );
 	app.raycaster.bottom.ray.origin.y -= 5;
 	intersects = app.raycaster.bottom.intersectObjects( app.objects );
 	onObject = intersects.length > 0;
